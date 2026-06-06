@@ -1,1 +1,6 @@
 @import "tailwindcss";
+
+@theme {
+  /* Elevate slate-400 to a highly accessible contrast ratio of 4.81:1 on pure white */
+  --color-slate-400: #5c6f84;
+}

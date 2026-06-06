@@ -98,6 +98,7 @@ export const WellnessSupport: React.FC = () => {
         <div className="flex gap-2 mb-5">
           <button
             onClick={() => setActiveTip('breathing')}
+            aria-pressed={activeTip === 'breathing'}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 cursor-pointer transition-all ${
               activeTip === 'breathing' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'text-slate-500 hover:bg-slate-50'
             }`}
@@ -107,6 +108,7 @@ export const WellnessSupport: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTip('pomodoro')}
+            aria-pressed={activeTip === 'pomodoro'}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 cursor-pointer transition-all ${
               activeTip === 'pomodoro' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'text-slate-500 hover:bg-slate-50'
             }`}
@@ -116,6 +118,7 @@ export const WellnessSupport: React.FC = () => {
           </button>
           <button
             onClick={() => setActiveTip('sleep')}
+            aria-pressed={activeTip === 'sleep'}
             className={`px-3 py-1.5 text-xs font-semibold rounded-lg flex items-center gap-1.5 cursor-pointer transition-all ${
               activeTip === 'sleep' ? 'bg-emerald-50 text-emerald-700 border border-emerald-200' : 'text-slate-500 hover:bg-slate-50'
             }`}

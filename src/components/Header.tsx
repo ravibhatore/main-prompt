@@ -86,19 +86,22 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
       </div>
 
       {/* Tabs navigation in rounded capsule style */}
-      <div className="max-w-6xl mx-auto px-4 mt-6">
-        <div className="bg-slate-100 p-1 rounded-2xl inline-flex flex-wrap gap-1 w-full sm:w-auto">
+      <nav className="max-w-6xl mx-auto px-4 mt-6" aria-label="Main Navigation">
+        <div className="bg-slate-200/60 p-1 rounded-2xl inline-flex flex-wrap gap-1 w-full sm:w-auto" role="tablist">
           {tabItems.map((item) => {
             const isActive = activeTab === item.id;
             return (
               <button
                 key={item.id}
                 id={`tab-${item.id}`}
+                role="tab"
+                aria-selected={isActive}
+                aria-controls="main-frame-root"
                 onClick={() => setActiveTab(item.id)}
                 className={`py-2 px-4 text-xs font-bold rounded-xl transition-all cursor-pointer whitespace-nowrap ${
                   isActive
                     ? 'bg-white text-slate-900 shadow-xs'
-                    : 'text-slate-500 hover:text-slate-900'
+                    : 'text-slate-600 hover:text-slate-900'
                 }`}
               >
                 {item.label}
@@ -106,7 +109,7 @@ export const Header: React.FC<HeaderProps> = ({ activeTab, setActiveTab }) => {
             );
           })}
         </div>
-      </div>
+      </nav>
     </header>
   );
 };

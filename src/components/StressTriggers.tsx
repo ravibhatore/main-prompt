@@ -80,6 +80,7 @@ export const StressTriggers: React.FC = () => {
                 type="button"
                 id={`trigger-predefined-${key}`}
                 onClick={() => toggleCategory(key)}
+                aria-pressed={isSelected}
                 className={`p-3 text-xs font-semibold rounded-xl border text-center transition-all cursor-pointer truncate ${
                   isSelected
                     ? 'bg-emerald-600 font-bold text-white border-emerald-600'
@@ -98,6 +99,7 @@ export const StressTriggers: React.FC = () => {
                 type="button"
                 id={`trigger-custom-${custom}`}
                 onClick={() => toggleCategory(custom)}
+                aria-pressed={isSelected}
                 className={`p-3 text-xs font-semibold rounded-xl border text-center transition-all cursor-pointer truncate ${
                   isSelected
                     ? 'bg-emerald-600 font-bold text-white border-emerald-600'

@@ -264,6 +264,8 @@ export const BentoGridDashboard: React.FC = () => {
                   <button
                     key={exam}
                     onClick={() => handleToggleExam(exam)}
+                    aria-pressed={isSelected}
+                    aria-label={`Toggle preparation checklist for ${exam}`}
                     className={`px-4 py-2.5 text-xs font-bold rounded-2xl border transition-all cursor-pointer flex items-center gap-1.5 hover:scale-[1.02] ${
                       isSelected
                         ? 'bg-slate-900 border-slate-950 text-white shadow-sm ring-2 ring-slate-900/10'
@@ -304,7 +306,7 @@ export const BentoGridDashboard: React.FC = () => {
               {timeOfDay === 'morning' ? TRANSLATIONS.mood.morningPrompt : TRANSLATIONS.mood.eveningPrompt}
             </p>
 
-            <div className="flex justify-between items-center py-2.5 gap-1 mb-4">
+            <div className="flex justify-between items-center py-2.5 gap-1 mb-4" role="radiogroup" aria-label="Daily mood selection">
               {[1, 2, 3, 4, 5].map((level) => {
                 const active = selectedMood === level;
                 return (
@@ -312,6 +314,9 @@ export const BentoGridDashboard: React.FC = () => {
                     key={level}
                     type="button"
                     onClick={() => setSelectedMood(level)}
+                    role="radio"
+                    aria-checked={active}
+                    aria-label={`Mood rating ${level} of 5 - ${TRANSLATIONS.mood.scale[level as 1|2|3|4|5]}`}
                     className={`w-11 h-11 sm:w-12 sm:h-12 rounded-full flex items-center justify-center text-xl transition-all hover:scale-105 cursor-pointer ${
                       active
                         ? 'bg-emerald-50 border-2 border-emerald-500 scale-105 ring-4 ring-emerald-50'

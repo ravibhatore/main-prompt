@@ -64,10 +64,10 @@ export const MoodCheckIn: React.FC = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         {/* Mood select list */}
         <div>
-          <label className="block text-xs font-mono font-semibold uppercase text-slate-400 mb-3">
+          <span className="block text-xs font-mono font-semibold uppercase text-slate-400 mb-3" id="vibe-group-label">
             Select Your Overall Vibe
-          </label>
-          <div className="grid grid-cols-5 gap-2.5">
+          </span>
+          <div className="grid grid-cols-5 gap-2.5" role="radiogroup" aria-labelledby="vibe-group-label">
             {[1, 2, 3, 4, 5].map((level) => {
               const active = selectedMood === level;
               return (
@@ -76,6 +76,9 @@ export const MoodCheckIn: React.FC = () => {
                   type="button"
                   id={`mood-btn-${level}`}
                   onClick={() => setSelectedMood(level)}
+                  role="radio"
+                  aria-checked={active}
+                  aria-label={`Mood rating ${level} - ${TRANSLATIONS.mood.scale[level as 1|2|3|4|5]}`}
                   className={`py-3.5 px-1 rounded-xl flex flex-col items-center justify-center gap-1.5 border transition-all cursor-pointer ${
                     active
                       ? 'border-emerald-500 bg-emerald-50/60 text-emerald-800 scale-102 shadow-xs'
