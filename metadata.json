@@ -1,0 +1,6 @@
+{
+  "name": "Student Wellness Companion",
+  "description": "An end-to-end mindful tracking tool for managing mood, stress triggers, daily emotion reflections, and academic wellness.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
